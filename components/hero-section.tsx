@@ -4,25 +4,29 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, ChevronDown } from "lucide-react"
 import Image from "next/image"
+import { DoodlesPattern } from "@/components/doodles-pattern"
 
 export default function HeroSection() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-radial from-primary/10 to-transparent opacity-60"></div>
-        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-radial from-secondary/10 to-transparent opacity-60"></div>
+    <section id="home" className="relative min-h-screen flex items-center py-20 p-10 overflow-hidden">
+      <div className="absolute inset-0 -z-10 bg-background">
+        <div className="absolute inset-0 text-foreground/15 blur-sm">
+          <DoodlesPattern />
+        </div>
+        {/* Strong overlay for better readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/90 to-background/80 backdrop-blur-sm" />
       </div>
 
-      <div className="section-container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="section-container relative z-10 w-full">
+        <div className="flex flex-col lg:flex-row items-center justify-between lg:gap-8 bg-background/50 backdrop-blur-lg rounded-2xl shadow-2xl p-8 md:p-12 border border-border/50">
+          {/* Text Content - Left Side */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="order-2 lg:order-1"
+            className="flex-1 lg:pr-8"
           >
-            <div className="space-y-6">
+            <div className="space-y-6 text-center lg:text-left">
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent/20 text-accent-foreground text-sm font-medium">
                 <span className="relative flex h-2 w-2 mr-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
@@ -32,14 +36,17 @@ export default function HeroSection() {
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                Hi, I'm <span className="text-gradient">Suguna P J</span>
+                Hi, I'm <span className="text-foreground">Suguna P J</span>
               </h1>
 
-              <p className="text-xl text-muted-foreground max-w-lg">
-              I’m a full-stack explorer who turns chai and code into delightfully interactive web applications, dives into machine learning, and creates unique digital experiences. When I’m not busy debugging reality, I’m behind the camera or blogging about life’s odd little moments—because storytelling isn’t just for scripts.
+              <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
+                I'm a full-stack explorer who turns chai and code into delightfully interactive web applications, dives
+                into machine learning, and creates unique digital experiences. When I'm not busy debugging reality, I'm
+                behind the camera or blogging about life's odd little moments—because storytelling isn't just for
+                scripts.
               </p>
 
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4 lg:justify-start justify-center pt-2">
                 <Button
                   size="lg"
                   className="rounded-full"
@@ -51,14 +58,14 @@ export default function HeroSection() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="rounded-full"
+                  className="rounded-full bg-transparent"
                   onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
                 >
                   Ping me
                 </Button>
               </div>
 
-              <div className="flex items-center space-x-4 pt-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
                 <div className="flex -space-x-2">
                   {["React", "Node.js", "TypeScript"].map((tech, i) => (
                     <div
@@ -75,28 +82,24 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
+          {/* Image - Right Side */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="order-1 lg:order-2 flex justify-center"
+            className="flex-1 flex justify-center"
           >
             <div className="relative">
-              {/* Decorative elements */}
+              {/* Decorative circles around profile */}
               <div className="absolute -z-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
               <div className="absolute -z-10 w-48 h-48 bg-secondary/10 rounded-full blur-xl -right-12 -bottom-10"></div>
 
-              {/* Profile image */}
+              {/* Profile image with blob shape */}
               <div className="relative w-64 h-64 md:w-80 md:h-80 overflow-hidden blob-shape border-4 border-background shadow-xl">
-                <Image
-                  src="/me1.jpg"
-                  alt="Suguna P J"
-                  fill
-                  className="object-cover"
-                />
+                <Image src="/me3.png" alt="Suguna P J" fill className="object-cover" />
               </div>
 
-              {/* Floating elements */}
+              {/* Floating accent elements */}
               <div className="absolute -right-6 top-1/4 w-16 h-16 bg-accent rounded-2xl rotate-12 animate-float opacity-80"></div>
               <div
                 className="absolute -left-8 bottom-10 w-12 h-12 bg-primary rounded-full animate-float opacity-80"

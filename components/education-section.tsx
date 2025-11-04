@@ -4,6 +4,7 @@ import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { GraduationCap, Award, Calendar } from "lucide-react"
+import { DoodlesPattern } from "@/components/doodles-pattern"
 
 const education = [
   {
@@ -66,15 +67,23 @@ export default function EducationSection() {
   const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   return (
-    <section id="education" ref={ref} className="bg-muted/30">
-      <div className="section-container">
+    <section id="education" ref={ref} className="relative py-24 p-10 overflow-hidden">
+      <div className="absolute inset-0 -z-10 bg-background">
+        <div className="absolute inset-0 text-foreground/70">
+          <DoodlesPattern />
+        </div>
+        {/* Strong overlay for better readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/90 to-background/80 backdrop-blur-sm" />
+      </div>
+
+      <div className="relative z-10 section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <h2 className="section-title">Education & Certifications</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-balance text-center">Education & Certifications</h2>
           <p className="section-subtitle max-w-2xl mx-auto">
             My academic background and professional certifications that have shaped my expertise.
           </p>
@@ -149,8 +158,8 @@ export default function EducationSection() {
                     </div>
                     <h4 className="font-medium text-sm">{cert.name}</h4>
                   </div>
-                  <p className="text-xs text-muted-foreground mb-1">{cert.issuer}</p>
-                  <p className="text-xs text-muted-foreground mb-3">{cert.date}</p>
+                  {/* <p className="text-xs text-muted-foreground mb-1">{cert.issuer}</p>
+                  <p className="text-xs text-muted-foreground mb-3">{cert.date}</p> */}
                   <p className="text-xs text-muted-foreground">{cert.description}</p>
                 </CardContent>
               </Card>

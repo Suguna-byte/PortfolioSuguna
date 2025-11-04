@@ -17,6 +17,7 @@ import {
   LineChart,
   Shield,
 } from "lucide-react"
+import { DoodlesPattern } from "@/components/doodles-pattern"
 
 const skills = [
   {
@@ -111,15 +112,23 @@ export default function SkillsSection() {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <section id="skills" ref={ref} className="bg-muted/30">
-      <div className="section-container">
+    <section id="skills" ref={ref} className="relative py-24 p-10 overflow-hidden">
+      <div className="absolute inset-0 -z-10 bg-background">
+        <div className="absolute inset-0 text-foreground/15 blur-sm">
+          <DoodlesPattern />
+        </div>
+        {/* Strong overlay for better readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/90 to-background/80 backdrop-blur-sm" />
+      </div>
+
+      <div className="relative z-10 section-container px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="section-title">Technical Skills</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-balance">Technical Skills</h2>
           <p className="section-subtitle mx-auto">
             My toolkit for creating digital experiences across the full development stack.
           </p>

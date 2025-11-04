@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github, X, ArrowUpRight } from "lucide-react"
 import Image from "next/image"
+import { DoodlesPattern } from "@/components/doodles-pattern"
 
 const projects = [
   {
@@ -48,8 +49,8 @@ const projects = [
   },
   {
     id: 4,
-    title: "",
-    subtitle: "Interactive map showing spread of businesses all over India",
+    title: "BizMapper India ",
+    subtitle: "Interactive map showing spread of businesses all over India BizMapper India is a web app built with PostgreSQL, Node.js, React, and Leaflet that visualizes the spread of businesses across India on an interactive map. Users can filter by category, state, district, and pin code to explore business locations. The app also features a data download tool to export only the filtered or selected business data as needed",
     description: "A platform to browse buisnesses based on categories and location",
     image: "/map.jpg",
     tags: ["React", "Express", "Node.js", "PostgresSQL"],
@@ -87,16 +88,24 @@ export default function ProjectsSection() {
   }
 
   return (
-    <section id="projects" ref={ref} className="bg-background">
-      <div className="section-container">
+    <section id="projects" ref={ref} className="relative py-24 p-10 overflow-hidden">
+      <div className="absolute inset-0 -z-10 bg-background">
+        <div className="absolute inset-0 text-foreground/15 blur-sm">
+          <DoodlesPattern />
+        </div>
+        {/* Strong overlay for better readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/90 to-background/80 backdrop-blur-sm" />
+      </div>
+
+      <div className="relative z-10 section-container px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
-          className="mb-12"
+          className="mb-16 text-center"
         >
-          <h2 className="section-title">Featured Projects</h2>
-          <p className="section-subtitle max-w-2xl">
+          <h2 className="text-4xl md:text-5xl font-bold text-balance">Featured Projects</h2>
+          <p className="section-subtitle max-w-2xl mx-auto mb-4">
             A showcase of my recent work, demonstrating my skills in design, development, and problem-solving.
           </p>
         </motion.div>
@@ -171,7 +180,7 @@ export default function ProjectsSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center p-8 bg-black/25 backdrop-blur-sm"
             onClick={closeProjectDetails}
           >
             <motion.div
@@ -179,10 +188,10 @@ export default function ProjectsSection() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 20 }}
-              className="bg-card rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-auto"
+              className="bg-card rounded-2xl shadow-2xl max-w-3xl w-full max-h-[75vh] overflow-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative h-64 sm:h-80">
+              <div className="relative h-50 sm:h-80">
                 <Image
                   src={selectedProject.image || "/placeholder.svg"}
                   alt={selectedProject.title}
@@ -199,7 +208,7 @@ export default function ProjectsSection() {
                   <X className="h-4 w-4" />
                 </Button>
               </div>
-              <div className="p-8">
+              <div className="p-6">
                 <div className="mb-4">
                   <h3 className="text-2xl font-bold">{selectedProject.title}</h3>
                   <p className="text-muted-foreground">{selectedProject.subtitle}</p>

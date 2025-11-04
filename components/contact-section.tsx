@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Phone, MapPin, Linkedin, Github, Twitter, Send } from "lucide-react"
+import { DoodlesPattern } from "@/components/doodles-pattern"
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -84,15 +85,21 @@ export default function ContactSection() {
   ]
 
   return (
-    <section id="contact" ref={ref} className="bg-background">
-      <div className="section-container">
+    <section id="contact" ref={ref} className="relative py-24 p-10 overflow-hidden">
+      <div className="absolute inset-0 -z-10 bg-background">
+        <div className="absolute inset-0 text-foreground/15 blur-sm">
+          <DoodlesPattern />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/90 to-background/80 backdrop-blur-sm" />
+      </div>
+      <div className="relative z-10 section-container px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <h2 className="section-title">Get In Touch</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-balance text-center">Get In Touch</h2>
           <p className="section-subtitle max-w-2xl mx-auto">
             Have a project in mind or want to discuss opportunities? I'd love to hear from you.
           </p>
@@ -156,84 +163,110 @@ export default function ContactSection() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {/* <Card className="border border-border card-hover">
+            <Card className="h-full border border-border card-hover">
               <CardContent className="p-6 sm:p-8">
                 <h3 className="text-xl font-bold mb-6">Send Me a Message</h3>
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-1">
-                      Your Name
-                    </label>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                    transition={{ duration: 0.3, delay: 0.3 }}
+                  >
+                    <label className="text-sm font-medium">Name</label>
                     <Input
-                      id="name"
+                      type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Suguna"
+                      placeholder="Your name"
                       required
-                      className="w-full"
+                      className="mt-1"
                     />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-1">
-                      Your Email
-                    </label>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                    transition={{ duration: 0.3, delay: 0.35 }}
+                  >
+                    <label className="text-sm font-medium">Email</label>
                     <Input
-                      id="email"
-                      name="email"
                       type="email"
+                      name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="example@example.com"
+                      placeholder="your@email.com"
                       required
-                      className="w-full"
+                      className="mt-1"
                     />
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium mb-1">
-                      Subject
-                    </label>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                    transition={{ duration: 0.3, delay: 0.4 }}
+                  >
+                    <label className="text-sm font-medium">Subject</label>
                     <Input
-                      id="subject"
+                      type="text"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      placeholder="Project Inquiry"
+                      placeholder="What's this about?"
                       required
-                      className="w-full"
+                      className="mt-1"
                     />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-1">
-                      Message
-                    </label>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                    transition={{ duration: 0.3, delay: 0.45 }}
+                  >
+                    <label className="text-sm font-medium">Message</label>
                     <Textarea
-                      id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Hello, I'd like to talk about..."
+                      placeholder="Your message here..."
                       required
-                      className="w-full min-h-[120px]"
+                      rows={5}
+                      className="mt-1 resize-none"
                     />
-                  </div>
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground group"
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                    transition={{ duration: 0.3, delay: 0.5 }}
                   >
-                    {isSubmitting ? (
-                      "Sending..."
-                    ) : (
-                      <>
-                        Send Message
-                        <Send className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                      </>
-                    )}
-                  </Button>
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-primary hover:bg-primary/90"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 1, repeat: Infinity }}
+                            className="mr-2 h-4 w-4 inline-block"
+                          >
+                            ⟳
+                          </motion.div>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="mr-2 h-4 w-4" />
+                          Send Message
+                        </>
+                      )}
+                    </Button>
+                  </motion.div>
                 </form>
               </CardContent>
-            </Card> */}
+            </Card>
           </motion.div>
         </div>
       </div>

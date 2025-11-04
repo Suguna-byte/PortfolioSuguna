@@ -3,6 +3,7 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { Code, Database, Server, Layout, Cloud, Cpu, Globe, Zap } from "lucide-react"
+import { DoodlesPattern } from "@/components/doodles-pattern"
 
 const skills = [
   {
@@ -52,8 +53,16 @@ export default function AboutSection() {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <section id="about" ref={ref} className="py-24 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" ref={ref} className="relative py-24 p-10 overflow-hidden">
+      <div className="absolute inset-0 -z-10 bg-background">
+        <div className="absolute inset-0 text-foreground/20">
+          <DoodlesPattern />
+        </div>
+        {/* Subtle overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background/50 via-background/70 to-background/50" />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
