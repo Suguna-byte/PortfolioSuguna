@@ -8,44 +8,36 @@ import { DoodlesPattern } from "@/components/doodles-pattern"
 
 const experiences = [
   {
-    id: 1,
-    role: "Database Intern",
-    company: "Tellme DigiInfotech",
-    period: "Dec 2024 - Aug 2025",
-    location: "Pune, Ind",
-    description: [
-      "Creating Full stack Web Application, developing frontend, backend and database management"
-    ],
-    technologies: ["React", "Node.js", "FastAPI", "PostgresSQL", "Next.js", "NLP", "Python", "express", "TypeScript"],
-  },
-  {
-    id: 2,
+     id: 1,
     role: "Junior Software Developer Engineer",
     company: "Redsage Global",
     period: "Aug 2025 - Nov 2025",
     location: "Hyderabad, Ind",
     description: [
-      "Developed and maintained multiple web applications using React and Node.js",
-      "Collaborated with UX designers to implement responsive, accessible interfaces",
-     
-      "Integrated third-party APIs and services to enhance application functionality",
+      "Focused on frontend development using Next.js, React.js, TypeScript, and JavaScript",
+      "Translated business requirements into intuitive UI/UX designs and structured user flows",
+      "Collaborated with backend and design teams to ensure performance, scalability, and consistency.",
+      "Delivered responsive and user-centric interfaces aligned with modern web standards."
     ],
-    technologies: ["React", "TypeScript", "Express", "PostgreSQL", "Redis"],
+    technologies: ["React", "TypeScript", "Express", "PostgreSQL", "Redis", "Nextjs", "tailwindcss" ],
+   
   },
-  // {
-  //   id: 3,
-  //   role: "Frontend Developer",
-  //   company: "CreativeWeb Studios",
-  //   period: "2016 - 2018",
-  //   location: "Portland, OR",
-  //   description: [
-  //     "Built responsive websites and web applications for clients across various industries",
-  //     "Specialized in creating interactive UI components and animations",
-  //     "Implemented A/B testing that increased conversion rates by 15%",
-  //     "Collaborated with marketing teams to optimize SEO and performance",
-  //   ],
-  //   technologies: ["JavaScript", "HTML/CSS", "Vue.js", "Webpack", "SASS"],
-  // },
+  {
+    id: 2,
+    role: "Database Intern",
+    company: "Tellme DigiInfotech",
+    period: "Dec 2024 - Aug 2025",
+    location: "Pune, Ind",
+    description: [
+      "Developed and maintained full-stack web applications using React.js, Next.js, Node.js, FastAPI, and PostgreSQL",
+      "Designed and implemented RESTful APIs for efficient data access and integration.",
+      "Managed relational databases, optimized queries, and ensured data integrity using PostgreSQL",
+      "Collaborated with cross-functional teams for requirement analysis, system design, and implementation.",
+      "Delivered scalable and maintainable solutions following best coding and documentation practices."
+    ],
+    technologies: ["React", "Node.js", "FastAPI", "PostgresSQL", "Next.js", "NLP", "Python", "express", "TypeScript"],
+  },
+
 ]
 
 export default function ExperienceSection() {

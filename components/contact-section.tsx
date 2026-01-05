@@ -61,7 +61,7 @@ export default function ContactSection() {
     {
       icon: <MapPin className="h-5 w-5" />,
       label: "Location",
-      value: "Pune, MAH",
+      value: "India",
       href: "#",
     },
   ]
@@ -69,19 +69,15 @@ export default function ContactSection() {
   const socialLinks = [
     {
       icon: <Linkedin className="h-5 w-5" />,
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/suguna-jayarajan-5753b51a3/",
       label: "LinkedIn",
     },
     {
       icon: <Github className="h-5 w-5" />,
-      href: "https://github.com",
+      href: "https://github.com/Suguna-byte/",
       label: "GitHub",
     },
-    {
-      icon: <Twitter className="h-5 w-5" />,
-      href: "https://twitter.com",
-      label: "Twitter",
-    },
+  
   ]
 
   return (
@@ -105,13 +101,14 @@ export default function ContactSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 flex items-center justify-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
             transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex items-center justify-center" 
           >
-            <Card className="h-full border border-border card-hover">
+            <Card className="h-full border border-border card-hover ">
               <CardContent className="p-6 sm:p-8">
                 <h3 className="text-xl font-bold mb-6">Contact Information</h3>
                 <div className="space-y-6 mb-8">
@@ -163,110 +160,7 @@ export default function ContactSection() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Card className="h-full border border-border card-hover">
-              <CardContent className="p-6 sm:p-8">
-                <h3 className="text-xl font-bold mb-6">Send Me a Message</h3>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                    transition={{ duration: 0.3, delay: 0.3 }}
-                  >
-                    <label className="text-sm font-medium">Name</label>
-                    <Input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Your name"
-                      required
-                      className="mt-1"
-                    />
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                    transition={{ duration: 0.3, delay: 0.35 }}
-                  >
-                    <label className="text-sm font-medium">Email</label>
-                    <Input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="your@email.com"
-                      required
-                      className="mt-1"
-                    />
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                    transition={{ duration: 0.3, delay: 0.4 }}
-                  >
-                    <label className="text-sm font-medium">Subject</label>
-                    <Input
-                      type="text"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder="What's this about?"
-                      required
-                      className="mt-1"
-                    />
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                    transition={{ duration: 0.3, delay: 0.45 }}
-                  >
-                    <label className="text-sm font-medium">Message</label>
-                    <Textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Your message here..."
-                      required
-                      rows={5}
-                      className="mt-1 resize-none"
-                    />
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                    transition={{ duration: 0.3, delay: 0.5 }}
-                  >
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-primary hover:bg-primary/90"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <motion.div
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 1, repeat: Infinity }}
-                            className="mr-2 h-4 w-4 inline-block"
-                          >
-                            ⟳
-                          </motion.div>
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="mr-2 h-4 w-4" />
-                          Send Message
-                        </>
-                      )}
-                    </Button>
-                  </motion.div>
-                </form>
-              </CardContent>
-            </Card>
+            
           </motion.div>
         </div>
       </div>

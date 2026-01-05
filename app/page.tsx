@@ -3,7 +3,7 @@ import SkillsSection from "@/components/skills-section"
 import ProjectsSection from "@/components/projects-section"
 import ExperienceSection from "@/components/experience-section"
 import EducationSection from "@/components/education-section"
-import HobbiesSection from "@/components/hobbies-section"
+import HobbiesSection from "@/components/HobbiesSection"
 import ContactSection from "@/components/contact-section"
 
 export default function Home() {

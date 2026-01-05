@@ -56,7 +56,7 @@ export default function Footer() {
 
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
-            <p className="text-muted-foreground mb-2">sugunajayarajan@gmail.com</p>
+            <p className="text-muted-foreground mb-2">jayarajansuguna@gmail.com</p>
             <p className="text-muted-foreground mb-2"></p>
             <p className="text-muted-foreground"></p>
           </div>
