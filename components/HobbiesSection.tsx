@@ -145,6 +145,8 @@
 import { getSubstackPosts } from "@/lib/substack";
 import HobbiesClient from "./HobbiesClient";
 
+export const revalidate = 3600;
+
 export default async function HobbiesSection() {
   const posts = await getSubstackPosts();
 
