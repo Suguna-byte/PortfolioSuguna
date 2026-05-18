@@ -95,7 +95,7 @@ export default function ExperienceSection() {
         </motion.div>
 
         {/* ── Timeline ── */}
-        <div className="relative max-w-3xl mx-auto">
+        <div className="relative mx-auto" style={{width:'100%'}}>
           {/* Spine — draws down on scroll */}
           <motion.div
             className="absolute left-5 top-0 bottom-0 w-px bg-border origin-top"
@@ -124,22 +124,6 @@ export default function ExperienceSection() {
                   transition={{ duration: 0.45, delay: 0.35 + index * 0.13 }}
                   className="relative"
                 >
-                  {/* Timeline dot */}
-                  <motion.div
-                    className="absolute -left-[2.35rem] top-[1.35rem]"
-                    initial={{ scale: 0 }}
-                    animate={isInView ? { scale: 1 } : { scale: 0 }}
-                    transition={{ duration: 0.35, delay: 0.45 + index * 0.13, type: "spring", stiffness: 280 }}
-                  >
-                    {exp.isCurrent ? (
-                      <span className="relative flex h-4 w-4">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-40" />
-                        <span className="relative inline-flex rounded-full h-4 w-4 bg-primary border-2 border-background shadow-[0_0_8px_3px_hsl(var(--primary)/0.45)]" />
-                      </span>
-                    ) : (
-                      <span className="flex h-4 w-4 rounded-full border-2 border-primary bg-background" />
-                    )}
-                  </motion.div>
 
                   {/* Card — glows left border when open */}
                   <div
