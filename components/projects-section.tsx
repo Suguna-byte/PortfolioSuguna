@@ -132,10 +132,6 @@ export default function ProjectsSection() {
               custom={index}
               className="group relative"
             >
-              {/* Floating index number */}
-              <span className="absolute -top-3 -left-3 z-20 h-7 w-7 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shadow-md shadow-primary/30 select-none">
-                {String(index + 1).padStart(2, "0")}
-              </span>
 
               <div
                 className="relative h-full flex flex-col rounded-xl border border-border bg-card overflow-hidden
