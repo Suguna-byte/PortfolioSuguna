@@ -1,12 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
   typescript: {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    remotePatterns: [
+      { protocol: "https", hostname: "**.substack.com" },
+      { protocol: "https", hostname: "substackcdn.com" },
+      { protocol: "https", hostname: "**.substackcdn.com" },
+    ],
   },
 }
-
 export default nextConfig
