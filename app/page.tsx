@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <HeroSection />
-      <SkillsSection />
-      <ProjectsSection />
       <ExperienceSection />
+      <ProjectsSection />
+      <SkillsSection />
       <EducationSection />
       <HobbiesSection />
       <ContactSection />
